@@ -18,5 +18,9 @@ jobs:
     steps: # Reserved name. We will add a list. Each item will be key: value pair
       - name: Print greeting # Easier to identify a step
         run: echo "Hello World!" # We are using shell here, we could also use predefined functions
+        # to run multiple steps under run, wecan add a |
+        # run: |
+        #   echo "Hi"
+        #   echo "Hello"
       - name: Print goodbye
         run: echo "Done - bye!"  # Now here we have one job and two steps

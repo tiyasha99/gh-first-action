@@ -1,0 +1,22 @@
+# First you have to give your Workflow a name
+# name is key here
+name: First Workflow
+# After on key, we will mention the event or the events that should trigger the workflow to run
+on: workflow_dispatch #workflow dispatch is an event that manually waits for the user to manually start a workflow.
+
+# jobs key does not take a value immediately as we had for name and on key
+# Instead we need to move to a new line and hit the tab key
+# Because yaml format works with indentation
+# And if you indent a field below another field then it belongs to that field.
+# jobs key needs a field to belong to it and that would simply be the first job you wanna define
+jobs: 
+  first-job: #Doesn't take valueimmediately - needs indentation. first-job is not a key but an identifier
+    # GitHub offers hosted virtual machines to run workflows. The virtual machine contains an environment of tools, packages, 
+    # and settings available for GitHub Actions to use.
+    # We are using ubuntu-latest to use the latest ubuntu version as env
+    runs-on: ubuntu-latest
+    steps: # Reserved name. We will add a list. Each item will be key: value pair
+      - name: Print greeting # Easier to identify a step
+        run: echo "Hello World!" # We are using shell here, we could also use predefined functions
+      - name: Print goodbye
+        run: echo "Done - bye!"  # Now here we have one job and two steps
